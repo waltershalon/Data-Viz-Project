@@ -1,0 +1,106 @@
+---
+title: "World Happiness Report"
+subtitle: "INFO 526 - Fall 2023 - Project Final"
+author: "Team Plot Pioneers : Shalon Walter,
+         Priyarsha Vallabhaneni,
+         Chethana Thondebhavi Shantha Kumar,
+         Athira Thekkemadathil Anilkumar"
+title-slide-attributes:
+  data-background-image: images/smiley.jpg
+  data-background-size: stretch
+  data-background-opacity: "0.7"
+  data-slide-number: none
+format:
+  revealjs:
+    theme:  ['data/customtheming.scss']
+  
+editor: visual
+execute:
+  echo: false
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+
+# Load packages here
+pacman::p_load(tidymodels,
+               tidyverse)
+
+```
+
+```{r}
+#| label: setup
+#| include: false
+
+# Plot theme
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 11))
+
+# For better figure resolution
+knitr::opts_chunk$set(
+  fig.retina = 3, 
+  dpi = 300, 
+  fig.width = 6, 
+  fig.asp = 0.618 
+  )
+```
+
+```{r}
+#| label: load-data
+#| include: false
+# Load data here
+data(mtcars)
+mtcars$speed <- mtcars$hp / mtcars$wt
+
+data("penguins")
+```
+
+# A Journey through World Happiness
+
+## Introduction
+
+::: incremental
+-   The World Happiness Application aims to uncover the keys to societal happiness and well-being, leveraging data from the World Happiness Report.
+-   A user-friendly Shiny app to analyze factors affecting global happiness and visualize worldwide happiness rankings effectively.
+-   Interactive features to explore and understand how various factors influence happiness across different regions globally.
+:::
+
+## Dataset Description
+
+::: incremental
+-   Published annually by the United Nations. <https://worldhappiness.report/>
+
+-   Observations vary from 149 to 158 countries per year.
+
+-   The report considers several key indicators to assess happiness levels, such as income, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.
+:::
+
+# Shiny App
+
+<https://plotpioneers.shinyapps.io/happinessstatsapp/>
+
+# Major Events Affecting Happiness Scores (2015-2023)
+
+## 2017-2018 US-China Trade War
+
+![](images/china,%20US%20trade%20war.png){fig-align="center" width="1195"}
+
+## 2022 Pakistan Floods
+
+![](images/pakistan.png){fig-align="center" width="1195"}
+
+## 2016 Brexit Vote
+
+![](images/Uk_2016.png){fig-align="center"}
+
+## 2019-2023 COVID-19 Pandemic
+
+![Covid_19 affecting happiness rank](images/covid_19_updated.png){fig-align="center" width="1500"}
+
+## Conclusion
+
+Based on the provided plots, here are the summarized points reflecting the impact of major events on global happiness:
+
+1\. The COVID-19 pandemic caused a universal decline in happiness, reflected in the data as a noticeable dip for regions such as Eastern Asia and North America, due to health crises and economic downturns.
+
+2\. Specific events like the US-China Trade War, Brexit, and natural disasters like the Pakistan floods had varied impacts on different regions' happiness rankings, with some experiencing more pronounced fluctuations than others, such as the sharp changes in happiness rank for Pakistan around the time of the floods.
